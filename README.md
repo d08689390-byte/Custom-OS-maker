@@ -1,7 +1,7 @@
 # Welcome to Custom-OS-maker (Linux Distro)
 ## Just fork this repo and run this line of code in a codespace,
 ```
-sudo apt update && sudo apt install -y build-essential bison flex libgmp3-dev libmpfr-dev libmpc-dev texinfo qemu-system-x86 grub-pc-bin xorriso
+sudo apt update && sudo apt install -y build-essential bison flex libgmp3-dev libmpfr-dev libmpc-dev texinfo qemu-system-x86 grub-pc-bin xorriso nasm
 ```
 ### Then edit the boot.asm, linker.ld and kernel.c files to your liking,                                                              
 ### Then run in the codespace 
