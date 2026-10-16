@@ -1,0 +1,7 @@
+{
+    "name": "Retro Clock",
+    "version": "1.0",
+    "author": "Official CodeOS",
+    "signed": true,
+    "entrypoint": "clock.py"
+}

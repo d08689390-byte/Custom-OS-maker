@@ -1,0 +1,34 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "Ubuntu",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/base:resolute",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [5900, 6080],
+	"portsAttributes": {
+		"5900": {
+			"label": "QEMU VNC"
+		},
+		"6080": {
+			"label": "noVNC",
+			"onAutoForward": "openBrowser"
+		}
+	},
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "sudo apt-get update && sudo apt-get install -y qemu-system-x86 websockify novnc python3-websockify python3-numpy",
+
+	// Start QEMU's VNC endpoint and noVNC when the container starts.
+	"postStartCommand": "if [ ! -f /tmp/qemu-vnc.pid ] || ! kill -0 \"$(cat /tmp/qemu-vnc.pid)\" 2>/dev/null; then qemu-system-x86_64 -display none -vnc 0.0.0.0:0 -daemonize -pidfile /tmp/qemu-vnc.pid; fi; if [ ! -f /tmp/novnc.pid ] || ! kill -0 \"$(cat /tmp/novnc.pid)\" 2>/dev/null; then websockify --web=/usr/share/novnc 0.0.0.0:6080 127.0.0.1:5900 >/tmp/novnc.log 2>&1 & echo $! >/tmp/novnc.pid; fi",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Connect as root. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "root"
+}

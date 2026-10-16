@@ -1,0 +1,12 @@
+{
+    "owner": {
+        "username": "owner",
+        "password": "admin"
+    },
+    "allow_extra_users": false,
+    "users": {
+        "example@codeosdev.coder": {
+            "password": "1234Code@"
+        }
+    }
+}

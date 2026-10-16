@@ -1,0 +1,7 @@
+{
+    "name": "Matrix Screensaver",
+    "version": "1.0",
+    "author": "Official CodeOS",
+    "signed": true,
+    "entrypoint": "matrix.py"
+}
